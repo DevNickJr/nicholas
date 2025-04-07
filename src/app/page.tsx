@@ -4,24 +4,41 @@ import Image, { StaticImageData } from "next/image";
 import HeroImg from "@/assets/hero.svg";
 import Project1Img from "@/assets/project1.png";
 import { motion } from 'framer-motion'
-import { TrainFrontTunnel } from "lucide-react";
+import { Mail, Phone, TrainFrontTunnel } from "lucide-react";
 import { useState } from "react";
+import Share from "@/components/Share";
 
 export default function Home() {
   const [isFocused, setIsFocused] = useState({ name: false, email: false, message: false})
 
   return (
     <>
-      <section className="relative grid lg:h-screen lg:grid-cols-2 p-8 md:px-16 lg:px-24">
+      <section className="relative grid gap-4 lg:grid-cols-2 p-8 md:p-16 lg:px-24 xl:py-32">
         <div className="flex flex-col items-start justify-center gap-y-6 z-1 max-w-lg">
           <h1 className="text-xl text-white lg:text-3xl mb-1">
             Nicholas is a <span className="text-primary">web designer</span> and <span className="text-primary">front-end developer</span>  
           </h1>
           {/* <span className="text-4xl font-bold text-gray-900 lg:text-6xl"></span> */}
           <span className="text-secondary text-md lg:text-lg">He crafts responsive websites where technologies meet creativity</span>
-          <Button className="">
-            Contact Me!!
-          </Button>
+            <Button className="relative">
+              <motion.div
+                transition={{
+                  duration: 3,
+                }}
+                variants={{
+                  rest: {
+                    top: 'calc(-100% - 1px)',
+                    left: 'calc(-100% - 3px)',
+                  },
+                  hover: {
+                    top: ['-100%', '-100%', '100%', '100%', '-100%', 'calc(-100% - 1px)'],
+                    left: ['-100%', '100%', '100%', '-100%', '-100%', 'calc(-100% - 3px)'],
+                  }
+                }}
+                className="absolute -top-full -left-full w-full h-full z-10 bg-linear-to-r from-violet-500 to-primary"
+              />
+              Contact Me!!
+            </Button>
         </div>
         <div className="flex flex-col justify-center items-center">
           <Image
@@ -252,6 +269,42 @@ export default function Home() {
           />
           <Button>SEND MESSAGE</Button>
         </div>
+      </section>
+      <section className="py-20 p-8 md:px-16 lg:px-24 flex flex-col gap-5 lg:gap-8 items-center text-center border-t text-sm text-white/70">
+        <Share />
+        <div className="flex justify-center gap-4">
+          <motion.a
+            whileHover={{
+                left: [3, -3, 3, -3, 0],
+            }}
+            transition={{
+                duration: 0.8,
+                ease: 'linear',
+            }}
+            target='_blank'
+            className='flex gap-3 items-center p-5 text-white/70 relative hover:text-primary'
+            href={'mailto:nicholasduadei14@gmail.com'}
+          >
+            <Mail size={'1rem'} />
+            nicholasduadei14@gmail.com
+          </motion.a>
+          <motion.a
+            whileHover={{
+                left: [3, -3, 3, -3, 0],
+            }}
+            transition={{
+                duration: 0.8,
+                ease: 'linear',
+            }}
+            target='_blank'
+            className='flex gap-3 items-center p-5 text-white/70 relative hover:text-primary'
+            href={'tel:+2349033398824'}
+          >
+            <Phone size={'1rem'} />
+            090 333 98824
+          </motion.a>
+        </div>
+        <p className="">Copyright © All rights reserved.</p>
       </section>
     </>
   );

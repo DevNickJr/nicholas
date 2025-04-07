@@ -116,6 +116,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply max-w-[1600px] mx-auto;
+  }
   body {
     @apply bg-background text-foreground;
   }
