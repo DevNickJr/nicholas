@@ -276,7 +276,7 @@ export default function Home() {
                   <motion.div
                     style={{ translateY: '-100%' }}
                     animate={{ translateY: '100%' }}
-                    transition={{ duration: 1, repeat: Infinity, ease: 'linear', delay: (index-1)*2, repeatDelay: 4 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: 'linear', delay: index*2, repeatDelay: 4 }}
                     className={`w-16 h-16 lg:w-36 lg:h-36 aspect-square absolute top-0 left-0 bg-linear-to-b from-violet-500 to-fuchsia-500`}
                   />
                   <Image
