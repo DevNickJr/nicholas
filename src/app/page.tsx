@@ -6,15 +6,36 @@ import HeroImg from "@/assets/hero.svg";
 import BBImage from "@/assets/bb.png";
 import RafImg from "@/assets/raf.png";
 import YenImg from "@/assets/yen.png";
-import { motion, useScroll } from 'framer-motion'
+import { motion, useAnimate, useScroll } from 'framer-motion'
 import { Code, Codesandbox, GitGraph, Github, Globe, Mail, Phone, Server, TrainFrontTunnel } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Share from "@/components/Share";
 import { useSmoothScrollTransform } from "@/hooks/useSmoothScroll";
 
 export default function Home() {
   const [isFocused, setIsFocused] = useState({ name: false, email: false, message: false})
+  const [loading, setLoading] = useState(false)
   const { scrollY } = useScroll()
+  const reset = useRef<HTMLButtonElement | null>(null)
+  const [scope, animate] = useAnimate()
+  
+
+  useEffect(() => {
+    const animateFn = async () => {
+      await animate(scope.current, { bottom: 30, right: 30, opacity: 1 }, { duration: 1 })
+      setTimeout(() => {
+        animate(scope.current, { bottom: -30, right: 30, opacity: 0 }, { duration: 1 })
+      }, 1000)
+
+    }
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false)
+        reset?.current?.click()
+        animateFn()
+      }, 2000)
+    }
+  }, [loading, animate, scope])
 
   const y1 = useSmoothScrollTransform(scrollY, [0, 3000], [100, 2700])
   const y2 = useSmoothScrollTransform(scrollY, [0, 3000], [600, -400])
@@ -23,8 +44,20 @@ export default function Home() {
   const y5 = useSmoothScrollTransform(scrollY, [0, 3000], [400, -1500])
   const y6 = useSmoothScrollTransform(scrollY, [0, 3000], [450, -1500])
 
+
   return (
     <>
+      <motion.div
+        ref={scope}
+        style={{
+          bottom: -30,
+          right: 30,
+          opacity: 0,
+        }}
+        className="fixed bg-background backdrop-blur-xs p-1" 
+      >
+        Message <span className="text-primary">sent</span>. Will get back to you asap.
+      </motion.div>
       <section className="relative grid gap-4 lg:grid-cols-2 p-8 py-8 md:p-16 lg:px-24 xl:py-32">
         <div className="flex flex-col items-start justify-center gap-y-6 z-1 max-w-lg">
           <h1 className="text-xl text-white lg:text-3xl mb-1">
@@ -222,15 +255,20 @@ export default function Home() {
                 desc: 'Studied core engineering principles with specialization in thermodynamics and design. Graduated with strong problem-solving and analytical skills.'
               },
               {
-                title: "AltSchool Africa",
-                sub: "Frontend Engineering Diploma",
-                desc: "Focused on modern frontend technologies like React, Next.js, and TypeScript. Built real-world projects, collaborated in agile teams, and applied design best practices."
+                title: "ALX-T Nanodegree (Udacity)",
+                sub: "Full Stack Developer",
+                desc: "Focused on modern frontend technologies like React and backend technologies like Django. Built projects and explored design best practices."
               },
               {
                 title: "freeCodeCamp",
                 sub: "Responsive Web Design Certification",
                 desc: "Completed 300+ hours of hands-on coding challenges covering HTML, CSS, Flexbox, Grid, and responsive design techniques."
-              }
+              },
+              // {
+              //   title: "WorldQuant University",
+              //   sub: "Applied Data Science  1 - Scientific Computing and Python ",
+              //   desc: "Completed 300+ hours of hands-on coding challenges covering HTML, CSS, Flexbox, Grid, and responsive design techniques."
+              // }
             ].map((education, index) => (
             <div key={index} className="lg:grid grid-cols-2 col-span-2">
               <div className={`${index % 2 === 0 ? 'lg:ml-auto lg:flex-row-reverse' : 'col-start-2 order-2'} flex gap-4 text-left lg:items-center items-start max-w-2xl`}>
@@ -238,7 +276,7 @@ export default function Home() {
                   <motion.div
                     style={{ translateY: '-100%' }}
                     animate={{ translateY: '100%' }}
-                    transition={{ duration: 1, repeat: Infinity, ease: 'linear', delay: 0, repeatDelay: 4 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: 'linear', delay: (index-1)*2, repeatDelay: 4 }}
                     className={`w-16 h-16 lg:w-36 lg:h-36 aspect-square absolute top-0 left-0 bg-linear-to-b from-violet-500 to-fuchsia-500`}
                   />
                   <Image
@@ -274,7 +312,10 @@ export default function Home() {
         <div className="w-full h-[1px] scale-x-2 bg-secondary/50" />
         <p className="text-lg lg:text-xl">Let&apos;s Connect</p>
         <p className="text-xs lg:text-sm text-secondary max-w-2xl">Always open to discussing new projects, creative ideas, or opportunities to be part of your vision</p>
-        <div className="flex flex-col gap-7 lg:gap-10 items-center w-full max-w-3xl text-xs tracking-widest">
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          setLoading(true)
+        }} className="flex flex-col gap-7 lg:gap-10 items-center w-full max-w-3xl text-xs tracking-widest">
           <motion.input 
             type="text"
             className="border-white/30 focus:border-white border-b p-3 w-full focus:outline-none"
@@ -314,8 +355,9 @@ export default function Home() {
               ease: "easeInOut",
             }} 
           />
-          <Button>SEND MESSAGE</Button>
-        </div>
+          <Button type="submit">{loading ? "SENDING ..." :"SEND MESSAGE"}</Button>
+          <button ref={reset} type="reset" className="hidden"></button>
+        </form>
       </section>
       <section className="py-20 p-8 md:px-16 lg:px-24 flex flex-col gap-5 lg:gap-8 items-center text-center border-t text-sm text-white/70">
         <Share />
