@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 import HeroImg from "@/assets/hero.svg";
 // import Project1Img from "@/assets/project1.png";
+import TotumoneImg from "@/assets/totumone.png";
+import EvexAIImg from "@/assets/evex.png";
+import CueedAccImg from "@/assets/cueedacc.png";
 import BBImage from "@/assets/bb.png";
 import RafImg from "@/assets/raf.png";
 import YenImg from "@/assets/yen.png";
@@ -236,9 +239,12 @@ export default function Home() {
         <p className="text-lg lg:text-xl">Some things I&apos;ve built</p>
         <p className="text-xs lg:text-sm text-secondary max-w-2xl">From ideas to impact — here are some projects I&apos;m proud of</p>
         <div className="grid gap-4 lg:gap-12 md:grid-cols-2 lg:grid-cols-3 w-full mt-4 lg:mt-10">
+          <AnimateProject link="https://totumone.com/" img={TotumoneImg} />
+          <AnimateProject link="https://www.evexai.ink/" img={EvexAIImg} />
           <AnimateProject link="https://i-sabi.com.ng/" img={BBImage} />
           <AnimateProject link="https://www.rafflenaija.com" img={RafImg} />
           <AnimateProject link="https://www.yenreach.com" img={YenImg} />
+          <AnimateProject link="https://www.cueedacc.com/" img={CueedAccImg} />
         </div>
       </section>
       <section className="py-20 p-8 md:px-16 lg:px-24 flex flex-col gap-5 items-center text-center">
