@@ -15,8 +15,8 @@ const firaCodeFont = Fira_Code({ subsets: ['latin'] })
 // });
 
 export const metadata: Metadata = {
-  title: "Duadei Nicholas | Software Developer",
-  description: "DevNick — Software Developer & Web Designer crafting clean and user-friendly digital experiences.",
+  title: "Duadei Nicholas | Software Engineer",
+  description: "DevNick — Software Engineer building software, data-driven systems, automation, and exploring AI.",
 }
 
 export default function RootLayout({
