@@ -83,7 +83,7 @@ export default function Home() {
             height={200}
             className="object-cover w-full aspect-auto object-bottom max-w-xl"
           />
-          <div className="flex items-center text-xs lg:text-sm gap-3 text-secondary border border-[#ABB2BF] px-2.5 p-1.5"><span className="w-3 h-3 bg-primary"></span> const nextStep = <span className="text-white">"build something useful"</span></div>
+          <div className="flex items-center text-xs lg:text-sm gap-3 text-secondary border border-[#ABB2BF] px-2.5 p-1.5"><span className="w-3 h-3 bg-primary"></span> const nextStep = <span className="text-white">&quot;build something useful&quot;</span></div>
         </div>
         <motion.div
           style={{
