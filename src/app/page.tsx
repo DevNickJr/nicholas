@@ -16,12 +16,12 @@ import Share from "@/components/Share";
 import { useSmoothScrollTransform } from "@/hooks/useSmoothScroll";
 
 export default function Home() {
-  const [isFocused, setIsFocused] = useState({ name: false, email: false, message: false})
+  const [isFocused, setIsFocused] = useState({ name: false, email: false, message: false })
   const [loading, setLoading] = useState(false)
   const { scrollY } = useScroll()
   const reset = useRef<HTMLButtonElement | null>(null)
   const [scope, animate] = useAnimate()
-  
+
 
   useEffect(() => {
     const animateFn = async () => {
@@ -57,24 +57,22 @@ export default function Home() {
           right: 30,
           opacity: 0,
         }}
-        className="fixed bg-background backdrop-blur-xs p-1" 
+        className="fixed bg-background backdrop-blur-xs p-1"
       >
         Message <span className="text-primary">sent</span>. Will get back to you asap.
       </motion.div>
       <section className="relative grid gap-4 lg:grid-cols-2 p-8 py-8 md:p-16 lg:px-24 xl:py-32">
         <div className="flex flex-col items-start justify-center gap-y-6 z-1 max-w-lg">
+
           <h1 className="text-xl text-white lg:text-3xl mb-1">
-            Crafting <span className="text-primary">beautiful</span> and <span className="text-primary">functional</span> web experiences
+            Building <span className="text-primary">software</span> that <span className="text-primary">solves</span> real problems
           </h1>
-          {/* <h1 className="text-xl text-white lg:text-3xl mb-1">
-            Nicholas is a <span className="text-primary">web designer</span> and <span className="text-primary">front-end developer</span>  
-          </h1> */}
-          {/* <span className="text-4xl font-bold text-gray-900 lg:text-6xl"></span> */}
-          <span className="text-secondary text-md lg:text-lg">He crafts responsive websites where technologies meet creativity</span>
+          {/* <h1 className="text-xl text-white lg:text-3xl mb-1"> Engineering <span className="text-primary">software</span> beyond the web. </h1> */}
+          <span className="text-secondary text-md lg:text-lg">Software Engineer focused on backend systems, full-stack applications, data, automation, and emerging AI technologies.</span>
           <a href="#contact">
-              <Button className="relative">
-                Contact Me!!
-              </Button>
+            <Button className="relative">
+              Contact Me!!
+            </Button>
           </a>
         </div>
         <div className="flex flex-col justify-center items-center">
@@ -85,7 +83,7 @@ export default function Home() {
             height={200}
             className="object-cover w-full aspect-auto object-bottom max-w-xl"
           />
-          <div className="flex items-center text-xs lg:text-sm gap-3 text-secondary border border-[#ABB2BF] px-2.5 p-1.5"><span className="w-3 h-3 bg-primary"></span> const portfolio = <span className="text-white">inProgress()</span></div>
+          <div className="flex items-center text-xs lg:text-sm gap-3 text-secondary border border-[#ABB2BF] px-2.5 p-1.5"><span className="w-3 h-3 bg-primary"></span> const nextStep = <span className="text-white">"build something useful"</span></div>
         </div>
         <motion.div
           style={{
@@ -189,16 +187,19 @@ export default function Home() {
         />
         <h2 className="text-primary">About Me</h2>
         <div className="w-full h-[1px] scale-x-2 bg-secondary/50" />
-        <p className="text-lg lg:text-xl">5+ Years of experience building the web.</p>
-        <p className="text-xs lg:text-sm text-secondary max-w-2xl">With over five years of experience, I&apos;ve had the opportunity to work with agencies, companies, and individuals on a variety of projects — from web design to front-end and back-end development. Feel free to reach out via email for work inquiries</p>
+        <p className="text-lg lg:text-xl">Engineer. Builder. Problem solver.</p>
+        <p className="text-xs lg:text-sm text-secondary max-w-2xl">I enjoy working beyond the surface of a product — understanding how systems work, designing APIs and data flows, integrating third-party services, automating repetitive processes, and building software that can scale with its users.</p>
         <div className="flex max-w-4xl items-center justify-center flex-wrap gap-12 place-items-center w-full mt-4 lg:mt-10">
           {[
-              { skill: 'NextJs/React', percent: 95 },
-              { skill: 'Node/Express', percent: 90 },
-              { skill: 'TypeScript', percent: 85 },
-              { skill: 'Databases', percent: 80 },
-              { skill: 'Git/Github', percent: 90 },
-              { skill: 'TailwindCSS', percent: 85 },
+            { skill: 'Typescript', percent: 85 },
+            { skill: 'Python/FastAPI', percent: 80 },
+            { skill: 'NextJs/React', percent: 95 },
+            { skill: 'Node/Express', percent: 90 },
+            { skill: 'PostgreSQL/Mongodb', percent: 80 },
+            { skill: 'Git/Github', percent: 90 },
+            { skill: 'TailwindCSS/Shadcn', percent: 85 },
+            { skill: 'Docker/AWS', percent: 80 },
+            { skill: 'AI/ML', percent: 70 },
           ].map(({ skill, percent }) => (
             <div key={skill} className="flex flex-col gap-6">
               <div className="grid w-40 h-40 text-lg font-medium place-items-center aspect-square relative p-14 rounded-full border-white bg-background">
@@ -211,7 +212,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <p className="text-xs lg:text-sm text-secondary max-w-2xl mt-3">...and always exploring new tools to build better web experiences.</p>
+        <p className="text-xs lg:text-sm text-secondary max-w-2xl mt-3">...and always exploring new tools to build better software experiences.</p>
       </section>
       <section className="py-20 p-8 md:px-16 lg:px-24 flex flex-col gap-5 items-center text-center">
         <h2 className="text-primary">Services</h2>
@@ -220,16 +221,16 @@ export default function Home() {
         <p className="text-xs lg:text-sm text-secondary max-w-2xl">Software Solutions Without Boundaries</p>
         <div className="grid gap-4 lg:gap-20 place-items-center md:grid-cols-2 lg:grid-cols-3 w-full mt-4 lg:mt-10">
           <AnimateService
-            title="Web Design"
-            desc="Beautiful, user-focused designs that blend creativity with functionality — built to leave lasting impressions"
+            title="Software Engineering"
+            desc="Building production-ready applications, APIs, backend services, and full-stack products."
           />
           <AnimateService
-            title="Frontend"
-            desc="Interactive, responsive, and accessible interfaces — bringing designs to life with clean code and smooth user experiences."
+            title="Data & Automation"
+            desc="Designing data workflows, integrations, automation pipelines, and systems that turn manual processes into reliable software."
           />
           <AnimateService
-            title="Backend"
-            desc="Robust, scalable, and secure systems — building powerful APIs and server-side logic to drive your product."
+            title="AI & Emerging Technology"
+            desc="Exploring practical applications of AI, machine learning, and intelligent automation through experiments and real-world projects."
           />
         </div>
       </section>
@@ -248,9 +249,9 @@ export default function Home() {
         </div>
       </section>
       <section className="py-20 p-8 md:px-16 lg:px-24 flex flex-col gap-5 items-center text-center">
-        <h2 className="text-primary">Resume</h2>
+        <h2 className="text-primary">Journey</h2>
         <div className="w-full h-[1px] scale-x-2 bg-secondary/50" />
-        <p className="text-lg lg:text-xl">My Journey So Far</p>
+        <p className="text-lg lg:text-xl">From engineering foundations to building software</p>
         <p className="text-xs lg:text-sm text-secondary max-w-2xl">Education</p>
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-28 w-full mt-4 lg:mt-10 relative">
           {
@@ -263,43 +264,43 @@ export default function Home() {
               {
                 title: "ALX-T Nanodegree (Udacity)",
                 sub: "Full Stack Developer",
-                desc: "Focused on modern frontend technologies like React and backend technologies like Django. Built projects and explored design best practices."
+                desc: "Focused on modern frontend technologies like React and backend technologies such as Django. Built projects and explored design best practices."
               },
               {
                 title: "freeCodeCamp",
                 sub: "Responsive Web Design Certification",
                 desc: "Completed 300+ hours of hands-on coding challenges covering HTML, CSS, Flexbox, Grid, and responsive design techniques."
               },
-              // {
-              //   title: "WorldQuant University",
-              //   sub: "Applied Data Science  1 - Scientific Computing and Python ",
-              //   desc: "Completed 300+ hours of hands-on coding challenges covering HTML, CSS, Flexbox, Grid, and responsive design techniques."
-              // }
+              {
+                title: "WorldQuant University",
+                sub: "Applied Data Science  1 - Scientific Computing and Python ",
+                desc: "Completed an intensive introduction to scientific computing and data analysis using Python, covering numerical methods, data manipulation, and visualization."
+              }
             ].map((education, index) => (
-            <div key={index} className="lg:grid grid-cols-2 col-span-2">
-              <div className={`${index % 2 === 0 ? 'lg:ml-auto lg:flex-row-reverse' : 'col-start-2 order-2'} flex gap-4 text-left lg:items-center items-start max-w-2xl`}>
-                <div className={`${index % 2 === 0 ? 'lg:translate-x-1/2' : 'lg:-translate-x-1/2'} w-16 h-16 lg:w-36 lg:h-36 aspect-square rounded-full grid place-items-center relative overflow-clip`}>
-                  <motion.div
-                    style={{ translateY: '-100%' }}
-                    animate={{ translateY: '100%' }}
-                    transition={{ duration: 1, repeat: Infinity, ease: 'linear', delay: index*2, repeatDelay: 4 }}
-                    className={`w-16 h-16 lg:w-36 lg:h-36 aspect-square absolute top-0 left-0 bg-linear-to-b from-violet-500 to-fuchsia-500`}
-                  />
-                  <Image
-                    src={HeroImg}
-                    alt="d"
-                    height={200}
-                    width={200}
-                    className="w-[95%] h-[95%] m-auto rounded-full bg-background relative"
-                  />
+              <div key={index} className="lg:grid grid-cols-2 col-span-2">
+                <div className={`${index % 2 === 0 ? 'lg:ml-auto lg:flex-row-reverse' : 'col-start-2 order-2'} flex gap-4 text-left lg:items-center items-start max-w-2xl`}>
+                  <div className={`${index % 2 === 0 ? 'lg:translate-x-1/2' : 'lg:-translate-x-1/2'} w-16 h-16 lg:w-36 lg:h-36 aspect-square rounded-full grid place-items-center relative overflow-clip`}>
+                    <motion.div
+                      style={{ translateY: '-100%' }}
+                      animate={{ translateY: '100%' }}
+                      transition={{ duration: 1, repeat: Infinity, ease: 'linear', delay: index * 2, repeatDelay: 7 }}
+                      className={`w-16 h-16 lg:w-36 lg:h-36 aspect-square absolute top-0 left-0 bg-linear-to-b from-violet-500 to-fuchsia-500`}
+                    />
+                    <Image
+                      src={HeroImg}
+                      alt="d"
+                      height={200}
+                      width={200}
+                      className="w-[95%] h-[95%] m-auto rounded-full bg-background relative"
+                    />
+                  </div>
+                  <div className={`${index % 2 === 0 ? 'lg:text-right' : ''} flex flex-col gap-2.5`}>
+                    <h6 className="text-xs lg:text-sm">{education.title}</h6>
+                    <span className="text-white/20 tracking-[0.2em] text-sm lg:text-base">{education.sub}</span>
+                    <p className="text-white/70 text-xs mt-2 lg:text-sm">{education.desc}</p>
+                  </div>
                 </div>
-                <div className={`${index % 2 === 0 ? 'lg:text-right' : ''} flex flex-col gap-2.5`}>
-                  <h6 className="text-xs lg:text-sm">{education.title}</h6>
-                  <span className="text-white/20 tracking-[0.2em] text-sm lg:text-base">{education.sub}</span>
-                  <p className="text-white/70 text-xs mt-2 lg:text-sm">{education.desc}</p>
-                </div>
-              </div>
-            </div>))
+              </div>))
           }
           <div
             className="absolute top-0 bottom-0 w-[1px] -translate-x-1/2 bg-white/30 -z-10 h-full left-8 lg:left-1/2 overflow-hidden"
@@ -307,7 +308,7 @@ export default function Home() {
             <motion.div
               initial={{ top: '-10%' }}
               animate={{ top: '100%' }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+              transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
               className="absolute h-20 bg-linear-to-b from-violet-500 to-fuchsia-500 w-[1px] lg:-translate-x-1/2 -z-10 lg:left-1/2"
             />
           </div>
@@ -316,13 +317,13 @@ export default function Home() {
       <section id="contact" className="py-20 p-8 md:px-16 lg:px-24 flex flex-col gap-5 items-center text-center">
         <h2 className="text-primary">Contact</h2>
         <div className="w-full h-[1px] scale-x-2 bg-secondary/50" />
-        <p className="text-lg lg:text-xl">Let&apos;s Connect</p>
-        <p className="text-xs lg:text-sm text-secondary max-w-2xl">Always open to discussing new projects, creative ideas, or opportunities to be part of your vision</p>
+        <p className="text-lg lg:text-xl">Let&apos;s Build Something</p>
+        <p className="text-xs lg:text-sm text-secondary max-w-2xl">Have a project, problem, or opportunity worth discussing? Send me a message.</p>
         <form onSubmit={(e) => {
           e.preventDefault()
           setLoading(true)
         }} className="flex flex-col gap-7 lg:gap-10 items-center w-full max-w-3xl text-xs tracking-widest">
-          <motion.input 
+          <motion.input
             type="text"
             className="border-white/30 focus:border-white border-b p-3 w-full focus:outline-none"
             placeholder="NAME"
@@ -333,9 +334,9 @@ export default function Home() {
             transition={{
               duration: 0.3,
               ease: "easeInOut",
-            }} 
+            }}
           />
-          <motion.input 
+          <motion.input
             type="email"
             className="border-white/30 focus:border-white border-b p-3 w-full focus:outline-none"
             placeholder="EMAIL"
@@ -346,9 +347,9 @@ export default function Home() {
             transition={{
               duration: 0.3,
               ease: "easeInOut",
-            }} 
+            }}
           />
-          <motion.textarea 
+          <motion.textarea
             rows={8}
             className="border-white/30 focus:border-white border-b p-3 w-full focus:outline-none"
             placeholder="MESSAGE"
@@ -359,9 +360,9 @@ export default function Home() {
             transition={{
               duration: 0.3,
               ease: "easeInOut",
-            }} 
+            }}
           />
-          <Button type="submit">{loading ? "SENDING ..." :"SEND MESSAGE"}</Button>
+          <Button type="submit">{loading ? "SENDING ..." : "SEND MESSAGE"}</Button>
           <button ref={reset} type="reset" className="hidden"></button>
         </form>
       </section>
@@ -370,11 +371,11 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           <motion.a
             whileHover={{
-                left: [3, -3, 3, -3, 0],
+              left: [3, -3, 3, -3, 0],
             }}
             transition={{
-                duration: 0.8,
-                ease: 'linear',
+              duration: 0.8,
+              ease: 'linear',
             }}
             target='_blank'
             className='flex gap-3 items-center p-5 text-white/70 relative hover:text-primary'
@@ -385,11 +386,11 @@ export default function Home() {
           </motion.a>
           <motion.a
             whileHover={{
-                left: [3, -3, 3, -3, 0],
+              left: [3, -3, 3, -3, 0],
             }}
             transition={{
-                duration: 0.8,
-                ease: 'linear',
+              duration: 0.8,
+              ease: 'linear',
             }}
             target='_blank'
             className='flex gap-3 items-center p-5 text-white/70 relative hover:text-primary'
@@ -410,7 +411,7 @@ export default function Home() {
 const AnimateBorder = ({
   percent
 }: {
-  percent: number  
+  percent: number
 }) => {
   return (
     <motion.div
@@ -436,67 +437,67 @@ const AnimateService = ({
   title,
   desc
 }: {
-  title: string  
-  desc: string  
+  title: string
+  desc: string
 }) => {
   return (
     <motion.div
       initial="rest" whileHover="hover" animate="rest"
-      variants={{ 
+      variants={{
         hover: { borderColor: "white" }
       }}
       transition={{
         duration: 0.3,
         type: "spring",
-      }} 
+      }}
       className="bg-background flex flex-col items-center w-full aspect-square border border-white/30 gap-6 relative px-8 max-w-xs"
     // className="flex flex-col items-center justify-center w-full aspect-square border border-white/30 p-12 gap-6"
     >
-    <motion.div
-      className="relative bg-background p-3 rounded-md"
-      variants={{
-         rest: { top: "35%", translateY: "-50%" }, // center
-         hover: { top: 0 }, // move to top
-       }}
-      transition={{
-        duration: 0.5,
-        type: "spring",
-        ease: "drag",
-      }} 
-    >
-      <TrainFrontTunnel />
+      <motion.div
+        className="relative bg-background p-3 rounded-md"
+        variants={{
+          rest: { top: "35%", translateY: "-50%" }, // center
+          hover: { top: 0 }, // move to top
+        }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          ease: "drag",
+        }}
+      >
+        <TrainFrontTunnel />
+      </motion.div>
+      <motion.div
+        className="relative"
+        variants={{
+          rest: { top: "40%", translateY: "-50%" },
+          hover: { top: "5%" },
+        }}
+        transition={{
+          delay: 0.05,
+          duration: 0.7,
+          type: "spring",
+          ease: "easeInOut"
+        }}
+      >
+        {title}
+      </motion.div>
+      <motion.div
+        className="relative text-sm"
+        variants={{
+          rest: { opacity: 0, scale: 0 },
+          hover: { opacity: 1, scale: 1, top: "10%" },
+        }}
+        transition={{
+          delay: 0.05,
+          duration: 0.7,
+          type: "spring",
+          ease: "easeInOut"
+        }}
+      >
+        {desc}
+      </motion.div>
     </motion.div>
-    <motion.div
-      className="relative"
-      variants={{
-         rest: { top: "40%", translateY: "-50%" }, 
-         hover: { top: "5%" }, 
-       }}
-      transition={{
-        delay: 0.05,
-        duration: 0.7,
-        type: "spring",
-        ease: "easeInOut"
-      }} 
-    >
-      {title}
-    </motion.div>
-    <motion.div
-      className="relative text-sm"
-      variants={{
-         rest: { opacity: 0, scale: 0 }, 
-         hover: { opacity: 1, scale: 1, top: "10%" }, 
-       }}
-      transition={{
-        delay: 0.05,
-        duration: 0.7,
-        type: "spring",
-        ease: "easeInOut"
-      }} 
-    >
-      {desc}
-    </motion.div>
-  </motion.div>
   )
 }
 
@@ -510,12 +511,12 @@ const AnimateProject = ({
   return (
     <motion.a
       initial="rest" whileHover="hover" animate="rest"
-      variants={{ 
+      variants={{
       }}
       transition={{
         duration: 0.3,
         type: "spring",
-      }} 
+      }}
       className="bg-background w-full relative overflow-hidden max-h-screen"
       target="_blank"
       href={link}
@@ -524,7 +525,7 @@ const AnimateProject = ({
       <motion.div
         className="relative bg-background rounded-md"
         variants={{
-          rest: { scale: 0.99, }, 
+          rest: { scale: 0.99, },
           hover: { scale: 1.05, translateY: 'calc(-100% + 90vh)' },
         }}
         transition={{
@@ -532,7 +533,7 @@ const AnimateProject = ({
           duration: 4,
           type: "spring",
           ease: "easeInOut",
-        }} 
+        }}
       >
         <Image
           src={img}
